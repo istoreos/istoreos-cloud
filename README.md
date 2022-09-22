@@ -1,2 +1,2 @@
 # istoreos-cloud
-Install istoreos to a cloud, example aliyun or tencent cloud
+Install istoreos to a cloud vps, example aliyun or tencent cloud
