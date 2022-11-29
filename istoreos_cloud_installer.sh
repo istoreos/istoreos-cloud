@@ -45,6 +45,11 @@ modify_grub() {
     grep -sFq 'init=/boot/istoreos_stage2.sh' $GRUB_FILES && return 0
     chmod 644 $GRUB_FILES 2>/dev/null
     sed -s -i -Ee 's,^([ \t]*linux[ \t]+.*$),\1 init=/boot/istoreos_stage2.sh,g' $GRUB_FILES
+    if ! grep -qF istoreos_stage2 $GRUB_FILES; then
+        echo "不支持的操作系统，请先将系统换成 Debian 或者 Ubuntu 再试." >&2
+        echo "Unsupported operating system, please install Debian or Ubuntu first." >&2
+        exit 1
+    fi
     return 0
 }
 
